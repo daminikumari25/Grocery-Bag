@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Add List
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Add Grocery List</h1>
+    <form method="post" action="/add-list">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" name="name" placeholder="Item name"/>
+        </div>
+        <div class="form-group">
+            <label>Item quantity</label>
+            <input type="text" id="quantity" name="quantity" class="form-control" placeholder="Item quantity"/>
+        </div>
+        <div class="form-group">
+            <label>Item status</label>
+            <select class="form-control" id="status" name="status">
+                <option value="P">PENDING</option>
+                <option value="B">BOUGHT</option>
+                <option value="NA">NOT AVAILABLE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="date" name="date" class="form-control" placeholder="Date">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add" class="btn btn-danger">
+        </div>
+    </form>
+</div>
+{% endblock %}
+
